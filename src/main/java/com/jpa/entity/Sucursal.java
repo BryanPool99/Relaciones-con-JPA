@@ -1,5 +1,6 @@
 package com.jpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +18,8 @@ public class Sucursal {
     private String telefono;
     private String direccion;
     private Boolean estado;
-    @ManyToOne(targetEntity = Distrito.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Distrito.class, fetch = FetchType.EAGER)
+    @JsonIgnore
     private Distrito distrito;
 
 }

@@ -1,5 +1,6 @@
 package com.jpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,13 +34,16 @@ public class Venta {
     private String fase;
     private String situacion;
     private Boolean estado;
-    @ManyToOne(targetEntity = Comprobante.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Comprobante.class, fetch = FetchType.EAGER)
+    @JsonIgnore
     private Comprobante comprobante;
-    @ManyToOne(targetEntity = Cliente.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Cliente.class, fetch = FetchType.EAGER)
+    @JsonIgnore
     private Cliente cliente;
     @ManyToMany(targetEntity = Producto.class, fetch = FetchType.LAZY)
     @JoinTable(name = "detalle",
             joinColumns = @JoinColumn(name = "venta_id"),
             inverseJoinColumns = @JoinColumn(name = "producto_id"))
+    @JsonIgnore
     private List<Producto> productos;
 }

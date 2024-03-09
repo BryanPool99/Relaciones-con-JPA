@@ -17,8 +17,8 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descripcion;
-    private String tienda;
-    private String delivery;
-    private String temporada;
+    private Boolean tienda;
+    private Boolean delivery;
+    private Boolean temporada;
     private Boolean estado;
 }

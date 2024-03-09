@@ -1,5 +1,6 @@
 package com.jpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,5 +32,6 @@ public class Profesional {
     @JoinTable(name = "kardex",
             joinColumns = @JoinColumn(name = "profesional_id"),
             inverseJoinColumns = @JoinColumn(name = "producto_id"))
+    @JsonIgnore
     private List<Producto> productos;
 }

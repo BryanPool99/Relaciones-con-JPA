@@ -1,5 +1,6 @@
 package com.jpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,6 +15,7 @@ public class Distrito {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    @ManyToOne(targetEntity = Provincia.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Provincia.class, fetch = FetchType.EAGER)
+    @JsonIgnore
     private Provincia provincia;
 }

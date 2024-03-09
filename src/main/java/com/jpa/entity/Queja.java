@@ -1,5 +1,6 @@
 package com.jpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,7 @@ public class Queja {
     private String accion;
     private String situacion;
     private Boolean estado;
-    @ManyToOne(targetEntity = Venta.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Venta.class, fetch = FetchType.EAGER)
+    @JsonIgnore
     private Venta venta;
 }

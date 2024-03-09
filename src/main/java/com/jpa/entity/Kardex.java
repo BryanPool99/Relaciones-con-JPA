@@ -1,5 +1,6 @@
 package com.jpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,9 +16,11 @@ public class Kardex {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne(targetEntity = Producto.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Producto.class, fetch = FetchType.EAGER)
+    @JsonIgnore
     private Producto producto;
-    @ManyToOne(targetEntity = Profesional.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Profesional.class, fetch = FetchType.EAGER)
+    @JsonIgnore
     private Profesional profesional;
     @Column(columnDefinition = "DATE")
     private LocalDate fecha;
