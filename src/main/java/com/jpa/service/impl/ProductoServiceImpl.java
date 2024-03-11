@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProductoServiceImp implements IProductoService {
+public class ProductoServiceImpl implements IProductoService {
     //inyeccion
     @Autowired
     private IProductoDAO productoDAO;
